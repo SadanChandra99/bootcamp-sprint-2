@@ -1,0 +1,25 @@
+kubectl exec -it postgres-6f87b85dc5-88m5c -- psql -h localhost -U postgres --password -p 5432 Test
+
+__________________________________________________________________
+
+-------------------------------
+websites
+------------------------------
+
+https://adamtheautomator.com/postgres-to-kubernetes/#Deploying_PostgreSQL_to_Kubernetes_Manually
+
+https://phoenixnap.com/kb/postgresql-kubernetes
+___________________________________________________________________
+
+----------------------------------
+create tables and access
+-----------------------------------
+postgres=# CREATE TABLE phonebook(phone VARCHAR(32), firstname VARCHAR(32), lastname VARCHAR(32), address VARCHAR(64));
+CREATE TABLE
+postgres=# INSERT INTO phonebook(phone, firstname, lastname, address) VALUES('+1 123 456 7890', 'John', 'Doe', 'North America');
+INSERT 0 1
+postgres=# SELECT * FROM phonebook ORDER BY lastname;
+      phone      | firstname | lastname |    address
+-----------------+-----------+----------+---------------
+ +1 123 456 7890 | John      | Doe      | North America
+(1 row)
